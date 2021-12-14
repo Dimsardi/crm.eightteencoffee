@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePertanyaanVerifikasi extends Migration
+class CreateDaftarMenu extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePertanyaanVerifikasi extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaan_verifikasi', function (Blueprint $table) {
+        Schema::create('daftar_menu', function (Blueprint $table) {
             $table->id();
-            $table->text('pertanyaan');
-            $table->text('pilihan_ganda');
-            $table->string('type_mitra');
+            $table->string('nama_menu')->unique();
+            $table->text('deskripsi');
+            $table->string('harga');
+            $table->text('foto_menu');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePertanyaanVerifikasi extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pertanyaan_verifikasi');
+        Schema::dropIfExists('daftar_menu');
     }
 }

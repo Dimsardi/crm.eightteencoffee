@@ -27,3 +27,7 @@ Route::get('kichen/home', [App\Http\Controllers\HomeController::class, 'kichenHo
 Route::get('barista/home', [App\Http\Controllers\HomeController::class, 'baristaHome'])->name('home.barista')->middleware('previlage_user');
 
 // menu makanan
+Route::get('admin/daftarmenu', [App\Http\Controllers\DaftarMenuController::class, 'view'])->name('admin.daftarmenu')->middleware('previlage_user');
+
+// menu makanan
+Route::get('admin/riwayatorder', [App\Http\Controllers\RiwayatOrderController::class, 'view'])->name('admin.riwayatorder')->middleware('previlage_user');
